@@ -14,7 +14,8 @@ Authors@R:
            role = c("aut"),
            email = "sophie.guillon@mines-paristech.fr",
            comment = c(ORCID = "0000-0002-1694-5477")))
-Description: The R package allows to read in the raw HOBO files downloaded through the HOBO software and compute the dissolved oxygen correction factors. Functions are also included allowing to append new data to previous data files.
+Maintainer: Rosalie Bruel <rosaliebruel@gmail.com>
+Description: The R package allows to read in the raw HOBO files downloaded through the HOBO software and compute the dissolved oxygen correction factors. Functions are also included to help append new data to previous data files.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
