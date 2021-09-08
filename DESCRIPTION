@@ -4,16 +4,15 @@ Title: Quality control assistant for HOBO data
 Version: 0.0.0.9000
 Year: 2021
 Authors@R: c(
-            person(given = "Rosalie",
-            family = "Bruel",
-            role = c("aut", "cre"),
-            email = "rosaliebruel@gmail.com",
-            comment = c(ORCID = "0000-0001-8351-7539")),
-            person(given = "Sophie",
-            family = "Guillon",
-            role = c("aut"),
-            email = "sophie.guillon@mines-paristech.fr",
-            comment = c(ORCID = "0000-0002-1694-5477")))
+          person("Rosalie", "Bruel",
+          email = "rosaliebruel@gmail.com", 
+          role = c("aut", "cre"), 
+          comment = c(ORCID = "0000-0001-8351-7539")
+          ),
+          person("Sophie", "Guillon",
+          email = "sophie.guillon@mines-paristech.fr",
+          role = c("aut"),
+          comment = c(ORCID = "0000-0002-1694-5477")))
 Maintainer: Rosalie Bruel <rosaliebruel@gmail.com>
 Description: The R package allows to read in the raw HOBO files downloaded through the HOBO software and compute the dissolved oxygen correction factors. Functions are also included to help append new data to previous data files.
 License: MIT + file LICENSE
