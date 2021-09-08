@@ -2,6 +2,7 @@
 #' 
 #' @description The function read in a hobo file in the format it is exported as at the CEREEP-Ecotron, i.e., as a .csv file. The columns are renamed and the date time format is converted to a date time format R understands.
 #' 
+#' @export
 #' @param filename path to HOBO dataset to read
 #' @keywords hobo planaqua
 #' @example read.hobo("Data/20210726/lac01.csv")
