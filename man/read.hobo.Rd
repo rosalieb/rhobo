@@ -12,5 +12,8 @@ read.hobo(filename)
 \description{
 The function read in a hobo file in the format it is exported as at the CEREEP-Ecotron, i.e., as a .csv file. The columns are renamed and the date time format is converted to a date time format R understands.
 }
+\author{
+Rosalie Bruel
+}
 \keyword{hobo}
 \keyword{planaqua}
