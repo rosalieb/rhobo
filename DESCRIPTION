@@ -4,7 +4,8 @@ Title: Quality control assistant for HOBO data
 Version: 0.0.0.9000
 Year: 2021
 Authors@R: 
-    c(person(given = "Rosalie",
+    c(
+    person(given = "Rosalie",
            family = "Bruel",
            role = c("aut", "cre"),
            email = "rosaliebruel@gmail.com",
