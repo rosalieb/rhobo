@@ -2,7 +2,7 @@
 #' 
 #' @description The function read in a hobo file in the format it is exported as at the CEREEP-Ecotron, i.e., as a .csv file. The columns are renamed and the date time format is converted to a date time format R understands.
 #' 
-#' @author Rosalie Bruel
+#' @author Rosalie Bruel and Sophie Guillon
 #' 
 #' @export
 #' @param filename path to HOBO dataset to read

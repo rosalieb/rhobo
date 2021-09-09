@@ -11,7 +11,7 @@
 #' @param Pbaro_mbar_init Atmospheric pressure in millibars during the "initialization" calibration (pre-deployment)
 #' @param Pbaro_mbar_end Atmospheric pressure in millibars during the "end of deployement" calibration (post-deployment)
 #' @param n number of observations PRIOR to TC_pre and TC_post used to compute the oxygen mean for computing correction factor. Default to n = 4.
-correction.factor.do <- function(filename, TC_pre, TC_post, Pbaro_mbar_init, Pbaro_mbar_end, n= 4) {
+correction.factor.do <- function(filename, TC_pre, TC_post, Pbaro_mbar_init, Pbaro_mbar_end, n = 4) {
   # 0- Initiate function
   # Make sure everything is at the right format
   TC_pre <- parse_date_time(x = TC_pre,
