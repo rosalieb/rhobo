@@ -6,8 +6,8 @@
 #' 
 #' @export
 #' @param filename path to HOBO dataset to read
-#' @keywords hobo planaqua
-#' @example read.hobo("Data/20210726/lac01.csv")
+#' @keywords hobo 
+#' @keywords planaqua
 
 read.hobo <- function(filename){
   tmp <- read.csv(filename,header = FALSE, skip = 2, sep = "\t", dec=".", stringsAsFactors = FALSE)
