@@ -25,7 +25,7 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
   # Set xmin and xmax as dates
   if(!is.null(xmin)) xmin <- parse_date_time(x = TM_init, orders = c("%Y/%m/%d","%Y-%m-%d"), tz = "GMT")
   if(!is.null(xmax)) xmax <- parse_date_time(x = TM_init, orders = c("%Y/%m/%d","%Y-%m-%d"), tz = "GMT")
-
+  
   # Require lakename. Works with the standard format of metadata wherelakename == "Lake"
   
   # 2- read in the additional data if alldat == TRUE ####
@@ -55,5 +55,8 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
   # 4- Add treatments
   x <- rhobo.treatments(x, lakename = lakename, orderby = orderby, order = order)
   
-  pCF(x) + lims(xmin, xmax)
+  if(is.null(xmin) & !is.null(xmax)) xmin = as.Date(min(x$TC_1), format = "%Y-%m-%d")
+  if(!is.null(xmin) & is.null(xmax)) xmax = as.Date(max(x$TC_1), format = "%Y-%m-%d")
+  
+  if(all(!is.null(c(xmin, xmax)))) pCF(x) + lims(xmin, xmax) else pCF(x)
 }
