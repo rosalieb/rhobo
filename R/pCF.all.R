@@ -45,6 +45,9 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
         x2<- bind_rows(x2, temp)
       }
     }
+    x2$T_user <- as.POSIXct(x2$T_user, format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+    x2$TC_1   <- as.POSIXct(x2$TC_1, format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+    x2$TC_n   <- as.POSIXct(x2$TC_n, format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
   }
   
   # 3- Merge x and x2 if !is.null(x) & alldat == TRUE
