@@ -24,15 +24,15 @@ rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, 
   if(any(!c("Hobo_Process","Hobo_Raw") %in% list.files(path = path2data))) {
     PB = TRUE
     mmessage <- c(mmessage, "      - The folder(s) Hobo_Process and/or Hobo_Raw are missing from the directory ", path2data,".\n")
-    }
+  }
   if(!foldername %in% list.files(path = paste0(path2data, "/Hobo_Raw"))) {
     PB = TRUE
     mmessage <- c(mmessage, "      - The folder ", foldername," is missing from the directory ", path2data, "/Hobo_Raw.\n")
-    }
+  }
   if(!"old" %in% list.files(path = paste0(path2data, "/Hobo_Process"))) {
     PB = TRUE
     mmessage <- c(mmessage, "      - The folder 'old' is missing from the directory ", path2data,"/Hobo_Raw.\n")
-    }
+  }
   
   if(PB == TRUE) {
     message(" There is an issue with your directory structure.")
@@ -40,35 +40,35 @@ rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, 
     struct.dir()
     stop()
   } else {
-    cat(paste0("\n _____________________\n 1. Directory structure\n The structure of your directory seems to match the requirements. \n Access the required directory structure at any moment with the function struct.dir()."))
-    }
-    
+    cat(paste0("\n _____________________\n 1. Directory structure\n     The structure of your directory seems to match the requirements. \n     Access the required directory structure at any moment with the function struct.dir().\n _____________________"))
+  }
+  
   
   # 2- Check that the folder has data ####
   files_raw <- list.files(paste0(path2data, "/Hobo_Raw/", foldername), pattern = ".txt", full.names = FALSE)
   # Give an error message if no files were returned
-  if(length(files_raw) == 0) stop(paste0(" 2. Presence of datasets in raw folder\n No raw files were found.\n1) Verify your path: \n   ", paste0(path2data, "/Hobo_Raw/", foldername),"\n   The '/Hobo_Raw/' part is automatically filled, and the folder name ",foldername,"\n   is an argument of the function. \n   If issue here, edit the first part of the function, i.e., the argument 'path2data'.",
+  if(length(files_raw) == 0) stop(paste0("\n 2. Presence of datasets in raw folder\n No raw files were found.\n1) Verify your path: \n   ", paste0(path2data, "/Hobo_Raw/", foldername),"\n   The '/Hobo_Raw/' part is automatically filled, and the folder name ",foldername,"\n   is an argument of the function. \n   If issue here, edit the first part of the function, i.e., the argument 'path2data'.",
                                          "\n2) Verify that the files in the folder have a .txt extension (default).\n   Their name should follow the format of 'lacxx_YYYYMMDD'\n   (xx being the lake number, e.g., 01, and YYYYMMDD the date).\n _____________________"))
-  cat(paste0(" 2. Presence of datasets in raw folder\n ",length(files_raw), " files were found in the directory.\n _____________________"))
+  cat(paste0("\n 2. Presence of datasets in raw folder\n     ",length(files_raw), " files were found in the directory.\n _____________________"))
   
   # 3- Check lake names (must be 01, 02, 03, ..., 16) ####
   lake_index_raw <- unlist(lapply(strsplit(files_raw,"_"), head, 1))
-  cat(paste0(" 3. Checking lake names \n Lake names are: ", paste(lake_index_raw, collapse = ", "), "."))
-  message(paste0("Check they look good (they should be something like: '01', '01L')."))
+  cat(paste0("\n 3. Checking lake names \n     Lake names are: ", paste(lake_index_raw, collapse = ", "), "."))
+  message(paste0("\n     Check they look good (they should be something like: '01', '01L')."))
   cat(" _____________________")
   
   # 4- Check chronology ####
   temp <- c(TC_pre, TM_init, TM_end,  TC_post)
   temp <- parse_date_time(x = temp,
-                  orders = c("%Y/%m/%d %H:%M:%S","%Y-%m-%d %H:%M:%S"), tz = "GMT")
-  if(paste(order(temp), collapse = "") != "1234") message(" 4. Checking chronology in your input parameters \n Problem: the time you entered for TC_pre, TM_init, TM_end and TC_post are not chronologically ordered. Check.\n _____________________") else cat(" 4. Checking chronology in your input parameters \n     Looks ok.\n _____________________")
+                          orders = c("%Y/%m/%d %H:%M:%S","%Y-%m-%d %H:%M:%S"), tz = "GMT")
+  if(paste(order(temp), collapse = "") != "1234") message("\n 4. Checking chronology in your input parameters \n Problem: the time you entered for TC_pre, TM_init, TM_end and TC_post are not chronologically ordered. Check.\n _____________________") else cat("\n 4. Checking chronology in your input parameters \n     Looks ok.\n _____________________")
   
   # 5- Check Pbaro ####
-  cat(" 5. Checking atmospheric pressure ")
-  if(Pbaro_mbar_init < 995) message("Are you sure you entered Pbaro_mbar_init in millibars?\n _____________________")
-  if(Pbaro_mbar_end < 995) message("Are you sure you entered Pbaro_mbar_end in millibars?\n _____________________")
+  cat("\n 5. Checking atmospheric pressure ")
+  if(Pbaro_mbar_init < 995) message("     Are you sure you entered Pbaro_mbar_init in millibars?\n _____________________")
+  if(Pbaro_mbar_end < 995) message("     Are you sure you entered Pbaro_mbar_end in millibars?\n _____________________")
   if(all(c(Pbaro_mbar_init,Pbaro_mbar_end) >= 995)) cat("     Looks ok.\n _____________________")
   
   # 6. Done!
-  message("....................... Done!")
+  message("\n....................... Done!")
 }

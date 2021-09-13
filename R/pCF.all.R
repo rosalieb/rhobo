@@ -55,5 +55,5 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
   # 4- Add treatments
   x <- rhobo.treatments(x, lakename = lakename, orderby = orderby, order = order)
   
-  pCF(x)
+  pCF(x) + lims(xmin, xmax)
 }
