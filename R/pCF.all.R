@@ -36,7 +36,7 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
       # ID the most recent file:
       files <- list.files(paste0(path2data, "/Hobo_Raw/", i), pattern = c("DO_Correction_factor"))
       files <- files[grep(".csv", files)]
-      if(!is.na(files)) {
+      if(length(files)>0) {
         date_extract <- as.Date(str_replace(unlist(lapply(strsplit(files, "_"),tail,1)), ".csv", ""))
         files <- files[max(order(date_extract))]
         
