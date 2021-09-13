@@ -33,9 +33,7 @@ rhobo.CF(
 First part of the QC routine: read in the raw file and compute dissolved oxygen correction factors.
 }
 \author{
-Rosalie Bruel
-
-Sophie Guillon
+Rosalie Bruel and Sophie Guillon
 }
 \keyword{hobo}
 \keyword{planaqua}

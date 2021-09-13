@@ -21,9 +21,7 @@ rhobo.append(metadata_QAQC, path2data, foldername, TM_init, TM_end)
 Apply the correction factors to measured dissolved oxygen and append file for each lake to previous file. If no previous file was found, only the new file is kept.
 }
 \author{
-Rosalie Bruel
-
-Sophie Guillon
+Rosalie Bruel and Sophie Guillon
 }
 \keyword{hobo}
 \keyword{planaqua}

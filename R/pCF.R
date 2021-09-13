@@ -9,7 +9,8 @@
 #' @keywords hobo
 #' @keywords planaqua
 
-pCF <- function(x) { ggplot(x) + 
+pCF <- function(x = NULL) { 
+    ggplot(x) + 
     # Add calibrated data
     geom_hline(yintercept = 1, lty = 2) +
     geom_segment(x %>% 
@@ -38,4 +39,5 @@ pCF <- function(x) { ggplot(x) +
     facet_wrap(~Lake) +
     labs(x = "Time", y = "DO correction factor",subtitle = paste0("Correction factor calculated on ", x$Date_processing[1])) + 
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+    
 }

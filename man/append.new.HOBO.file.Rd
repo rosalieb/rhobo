@@ -14,9 +14,9 @@ append.new.HOBO.file(
 )
 }
 \arguments{
-\item{newfile}{data frame of new HOBO dataset that need to be appended to the old one}
+\item{newfile}{data frame of new HOBO dataset that need to be appended to the old one. "datetime" format has been formated within the read.hobo() function.}
 
-\item{file2append}{data frame of old HOBO dataset the new HOBO data frame will be appended to.}
+\item{file2append}{data frame of old HOBO dataset the new HOBO data frame will be appended to. The "datetime" format is formated within the current function.}
 
 \item{CF_init}{correction factor at the beginning}
 

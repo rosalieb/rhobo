@@ -4,13 +4,16 @@
 \alias{pCF}
 \title{Visualize correction factors at the beginning and end of deployment}
 \usage{
-pCF(x)
+pCF(x = NULL)
 }
 \arguments{
 \item{x}{output dataframe from the correction.factor.do function}
 }
 \description{
 ggplot visual of correction factors, per lake
+}
+\author{
+Rosalie Bruel
 }
 \keyword{hobo}
 \keyword{planaqua}
