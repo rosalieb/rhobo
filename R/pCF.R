@@ -2,6 +2,8 @@
 #' 
 #' @description ggplot visual of correction factors, per lake
 #' 
+#' @author Rosalie Bruel
+#' 
 #' @export
 #' @param x output dataframe from the correction.factor.do function
 #' @keywords hobo

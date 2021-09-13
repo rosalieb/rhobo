@@ -13,8 +13,9 @@ read.hobo <- function(filename){
   tmp <- read.csv(filename,header = FALSE, skip = 2, sep = "\t", dec=".", stringsAsFactors = FALSE)
   tmplac <- tmp[,1:4]
   colnames(tmplac) <- c("lac","datetime","do.raw","wtr")
-  # careful, column "lac" is not filled with correct value. Solution: turn to NA for now:
-  tmplac$lac <- NA
+  # Careful, column "lac" is not filled with correct value. 
+  # Use the code in the filename
+  tmplac$lac <- unlist(lapply(strsplit(unlist(lapply(strsplit(filename,"/"), tail, 1)),"_"), head, 1))
   tmplac$datetime<- as.POSIXct(tmplac$datetime, format = "%Y/%m/%d %H:%M:%S", tz="GMT")
   
   return(tmplac)

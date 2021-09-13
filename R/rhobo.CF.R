@@ -2,8 +2,7 @@
 #' 
 #' @description First part of the QC routine: read in the raw file and compute dissolved oxygen correction factors.
 #' 
-#' @author Rosalie Bruel 
-#' @author Sophie Guillon
+#' @author Rosalie Bruel and Sophie Guillon
 #' 
 #' @export
 #' @param path2data User's path to the folder where the data are stored. Within that folder, there should be two subfolders with the raw data (Hobo_Raw) and the processed data (Hobo_Process)
