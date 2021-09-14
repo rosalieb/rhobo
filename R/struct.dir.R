@@ -21,15 +21,15 @@ struct.dir <- function() {
     "\n        |       |",
     "\n        |       |___ old",
     "\n        |       |     |", 
-    "\n        |       |     |___ [all the previous file]",
+    "\n        |       |     |___ [all the previous file (.txt)]",
     "\n        |       |",  
-    "\n        |       |___ [recent-most file for each lake]",
+    "\n        |       |___ [most-recent file for each lake]",
     "\n        |",
     "\n        |___ HOBO_Raw",
     "\n                |",
     "\n                |___ ", mfoldername,
     "\n                |     |", 
-    "\n                |     |___ [one file per lake]",
+    "\n                |     |___ [one file per lake (.txt)]",
     "\n                |", 
     "\n                |___ [one folder per field mission]\n"))
   

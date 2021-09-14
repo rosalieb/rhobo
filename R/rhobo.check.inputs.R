@@ -17,6 +17,9 @@
 #' @keywords hobo
 
 rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, TM_end, Pbaro_mbar_init, Pbaro_mbar_end) {
+  library(tidyverse)
+  library(lubridate)
+  
   # 1- Check the structure of pahth2data, and whether the folder we need are there.
   PB = FALSE # Default: no problem with the directory structure
   mmessage = NULL
@@ -40,7 +43,7 @@ rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, 
     struct.dir()
     stop()
   } else {
-    cat(paste0("\n _____________________\n 1. Directory structure\n     The structure of your directory seems to match the requirements. \n     Access the required directory structure at any moment with the function struct.dir().\n _____________________"))
+    cat(paste0("\n _____________________\n 1. Directory structure\n     The structure of your directory seems to match the requirements. \n     Access the required directory structure at any moment with the\n     function struct.dir().\n _____________________"))
   }
   
   

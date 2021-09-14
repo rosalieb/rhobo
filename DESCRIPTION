@@ -24,6 +24,7 @@ Imports:
     LakeMetabolizer,
     lubridate,
     dplyr,
+    stringr,
     ggplot2
 Suggests: 
     testthat (>= 3.0.0),

@@ -18,6 +18,8 @@
 rhobo.CF <- function(path2data, foldername, TC_pre, TC_post, 
                        Pbaro_mbar_init, Pbaro_mbar_end, n = 4) {
   
+  library(dplyr)
+  
   Sys.setenv(TZ = "GMT")
   
   # 1- List in the files and extract name ####

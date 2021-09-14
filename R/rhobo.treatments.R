@@ -13,6 +13,8 @@
 #' @keywords hobo
 
 rhobo.treatments <- function(x, lakename = NULL, orderby = "number", order = NULL) {
+  library(tidyverse)
+  
   # Get treatments:
   treatments <- structure(list(LAKENUMBER_TO_USE = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 
                                         13, 14, 15, 16), treatment = structure(c(4L, 2L, 3L, 1L, 1L, 

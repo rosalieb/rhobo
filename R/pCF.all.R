@@ -16,6 +16,10 @@
 #' @keywords planaqua
 
 pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "number", order = NULL, xmin = NULL, xmax = NULL) {
+  library(dplyr)
+  library(ggplot2)
+  library(lubridate)
+  
   # 1- Do some QAQC ####
   if(is.null(x) & alldat == FALSE) {
     cat(" You need to specify either a input data or set the alldat argument to TRUE. \n alldat was automatically set to TRUE to be able to visualize something.")
