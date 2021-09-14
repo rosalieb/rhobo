@@ -17,7 +17,7 @@
 #' @keywords hobo
 
 rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, TM_end, Pbaro_mbar_init, Pbaro_mbar_end) {
-  library(tidyverse)
+  
   library(lubridate)
   
   # 1- Check the structure of pahth2data, and whether the folder we need are there.
