@@ -52,9 +52,9 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
   }
   
   # 3- Merge x and x2 if !is.null(x) & alldat == TRUE
-  if(!is.null(x) && alldat == TRUE) {
-    x <- bind_rows(x, x2)
-  }
+  if(!is.null(x) && alldat == TRUE)  x <- bind_rows(x, x2)
+  
+  if( is.null(x) && alldat == TRUE)  x <- x2
   
   # 4- Add treatments
   x <- rhobo.treatments(x, lakename = lakename, orderby = orderby, order = order)
