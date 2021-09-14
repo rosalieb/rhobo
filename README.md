@@ -27,7 +27,7 @@ folder. You can access the desired structure of the home repository by
 running `struct.dir()`.
 
     #>  Structure of the directory: 
-    #>  ('...' below refers to the path2data you gave in the 'path2data' argument.))
+    #>  ('...' below refers to the path2data you gave in the 'path2data' argument.)
     #> 
     #>  .../PLANAQUA
     #>         |
@@ -114,7 +114,14 @@ metadata_QAQC <- specify.DO.CF(metadata_QAQC, "lac01L", "End", NA)
 pCF(metadata_QAQC)
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<div class="figure">
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" alt="Correction factor for dissolved oxygen measurements after manual edit." width="100%" />
+<p class="caption">
+Correction factor for dissolved oxygen measurements after manual edit.
+</p>
+
+</div>
 
 If happy with the results, you will save the outputs by: - writing the
 metadata (note that you can edit the output filename, but please leave

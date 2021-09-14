@@ -1,29 +1,25 @@
 ---
-output: github_document
-editor_options: 
-  chunk_output_type: console
+title: "rhobo"
+author: "Rosalie Bruel (iEES-Paris, CNRS, France) and Sophie Guillon (Mines ParisTech, France)"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{rhobo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
-
-pacman::p_load(ggplot2, tidyr, dplyr, stringr, lubridate, LakeMetabolizer)
-
 ```
 
-# rhobo
-
-<!-- badges: start -->
-<!-- badges: end -->
-
 The goal of rhobo is to read in the raw HOBO files downloaded through the HOBO software and compute the dissolved oxygen correction factors. Functions are also included to help append new data to previous data files.
+
 
 ## Installation
 
