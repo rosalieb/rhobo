@@ -11,7 +11,7 @@
 
 struct.dir <- function() {
   cat(paste0(
-    " Structure of the directory: \n ('...' below refers to the path2data you gave: \n   ",path2data,
+    " Structure of the directory: \n ('...' below refers to the path2data you gave in the 'path2data' argument.",
     ")\n\n .../PLANAQUA",
     "\n        |",
     "\n        |___ HOBO_Process",
