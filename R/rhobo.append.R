@@ -18,6 +18,8 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   Sys.setenv(TZ = "GMT")
   
   # 1- Pre computation ####
+  message(" Initialization.......... \n")
+  
   # 1.1- Check inputs ####
   # Change the format of TM_init and TM_end
   TM_init <-  parse_date_time(x = TM_init, orders = c("%Y/%m/%d %H:%M:%S","%Y-%m-%d %H:%M:%S"), tz = "GMT")
@@ -48,7 +50,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   # 1.3.2- The "old" folder contains all the data for all the lakes. For each lakes, we'll ID the most recent dataset.
   temp <- list.recent.files(paste0(path2data, "/Hobo_Process/old"))
   files_process <- temp$files
-  lake_index_process <- lake_index <- temp$index # Naming both is not necessary, but on 14-09-2021, this line is not uploading, and lake_index_process cannot be found. Seeing if this trick solves the problem.
+  lake_index_process <- temp$index # Naming both is not necessary, but on 14-09-2021, this line is not uploading, and lake_index_process cannot be found. Seeing if this trick solves the problem.
   
   
   #2- Create new file with appended data for each lake ####
@@ -65,6 +67,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   # 2.2- Loop for each file starts here ####
   # For each 'file_raw' (each .txt files downloaded with the HOBO software), read-in and append, when corresponding file exist.
   for (i in 1:length(files_raw)) {
+    message(paste0(" Starting ", lake_index_raw[i],"..."))
     # Read in new file
     newfile <- read.hobo(files_raw[i])
     newfile$lac <- substr(lake_index_raw[i], 4, nchar(lake_index_raw))
@@ -72,7 +75,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
     
     # Read in previous corrected file = file to append
     if(lake_index_raw[i] %in% lake_index_process) {
-      tmppath <- files_proccess[which(lake_index_process == lake_index_raw[i])]
+      tmppath <- files_process[which(lake_index_process == lake_index_raw[i])]
       file2append <- read.delim(tmppath)
      
       outfile <- append.new.HOBO.file(newfile = newfile,file2append = file2append,
@@ -106,7 +109,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
     write.table(outfile, file = outpath , append = FALSE, sep = "\t", dec = ".", row.names = FALSE, col.names = TRUE)
         
     # Print progress
-    message(paste0(lake_index_raw[i],":\n     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder."))
+    message(paste0("\n     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder."))
 
   }
   
