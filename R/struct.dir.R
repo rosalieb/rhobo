@@ -10,7 +10,7 @@
 #' @example struct.dir()
 
 struct.dir <- function() {
-  if(exists("path2data")) mpath2data = paste0(": \n    ",path2data,")") else mpath2data = ".)"
+  if(exists("path2data")) mpath2data = paste0(": \n    ",path2data) else mpath2data = "."
   if(exists("foldername")) mfoldername = foldername else mfoldername = "2021_07_27 (example name)"
   
   cat(paste0(

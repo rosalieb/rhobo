@@ -16,37 +16,9 @@ files.
 You can install the development version from
 [GitHub](https://github.com/) with:
 
-``` r
-# install.packages("devtools")
-devtools::install_github("rosalieb/rhobo")
-#> Downloading GitHub repo rosalieb/rhobo@HEAD
-#> tibble (3.1.3 -> 3.1.4) [CRAN]
-#> Installing 1 packages: tibble
-#> Installation du package dans 'C:/Users/Rosalie Bruel/Documents/R/win-library/4.1'
-#> (car 'lib' n'est pas spécifié)
-#> package 'tibble' successfully unpacked and MD5 sums checked
-#> Warning: cannot remove prior installation of package 'tibble'
-#> Warning in file.copy(savedcopy, lib, recursive = TRUE): problème
-#> lors de la copie de C:\Users\Rosalie Bruel\Documents\R\win-
-#> library\4.1\00LOCK\tibble\libs\x64\tibble.dll vers C:\Users\Rosalie
-#> Bruel\Documents\R\win-library\4.1\tibble\libs\x64\tibble.dll: Permission denied
-#> Warning: restored 'tibble'
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\downloaded_packages
-#>          checking for file 'C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\remotes30ec54d54d3f\rosalieb-rhobo-edf759a/DESCRIPTION' ...     checking for file 'C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\remotes30ec54d54d3f\rosalieb-rhobo-edf759a/DESCRIPTION' ...   v  checking for file 'C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\remotes30ec54d54d3f\rosalieb-rhobo-edf759a/DESCRIPTION' (525ms)
-#>       -  preparing 'rhobo':
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-#>       -  checking for LF line-endings in source and make files and shell scripts
-#>       -  checking for empty or unneeded directories
-#>      Omitted 'LazyData' from DESCRIPTION
-#>       -  building 'rhobo_0.0.0.9000.tar.gz'
-#>      
-#> 
-#> Installation du package dans 'C:/Users/Rosalie Bruel/Documents/R/win-library/4.1'
-#> (car 'lib' n'est pas spécifié)
-library(rhobo)
-```
+    # install.packages("devtools")
+    devtools::install_github("rosalieb/rhobo")
+    library(rhobo)
 
 ## Example
 
@@ -54,7 +26,26 @@ None of the following code will run unless you have data in your home
 folder. You can access the desired structure of the home repository by
 running `struct.dir()`.
 
-`struct.dir()`.
+    #>  Structure of the directory: 
+    #>  ('...' below refers to the path2data you gave in the 'path2data' argument.))
+    #> 
+    #>  .../PLANAQUA
+    #>         |
+    #>         |___ HOBO_Process
+    #>         |       |
+    #>         |       |___ old
+    #>         |       |     |
+    #>         |       |     |___ [all the previous file]
+    #>         |       |
+    #>         |       |___ [recent-most file for each lake]
+    #>         |
+    #>         |___ HOBO_Raw
+    #>                 |
+    #>                 |___ 2021_07_27 (example name)
+    #>                 |     |
+    #>                 |     |___ [one file per lake]
+    #>                 |
+    #>                 |___ [one folder per field mission]
 
 ### 1 - Set and check your input
 

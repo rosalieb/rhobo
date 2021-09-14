@@ -29,7 +29,13 @@ The goal of rhobo is to read in the raw HOBO files downloaded through the HOBO s
 
 You can install the development version from [GitHub](https://github.com/) with:
 
-``` {r}
+```
+# install.packages("devtools")
+devtools::install_github("rosalieb/rhobo")
+library(rhobo)
+```
+
+```{r install and load package, eval = TRUE, include=FALSE}
 # install.packages("devtools")
 devtools::install_github("rosalieb/rhobo")
 library(rhobo)
@@ -39,7 +45,10 @@ library(rhobo)
 None of the following code will run unless you have data in your home folder.
 You can access the desired structure of the home repository by running `struct.dir()`.
 
-` struct.dir()`.
+```{r echo=FALSE}
+struct.dir()
+```
+
 
 ### 1 - Set and check your input
 
