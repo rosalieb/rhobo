@@ -11,6 +11,9 @@ the HOBO software and compute the dissolved oxygen correction factors.
 Functions are also included to help append new data to previous data
 files.
 
+**Authors**: Rosalie Bruel (iEES-Paris, CNRS, France) and Sophie Guillon
+(Mines ParisTech, France)
+
 ## Installation
 
 You can install the development version from
@@ -35,15 +38,15 @@ running `struct.dir()`.
     #>         |       |
     #>         |       |___ old
     #>         |       |     |
-    #>         |       |     |___ [all the previous file]
+    #>         |       |     |___ [all the previous file (.txt)]
     #>         |       |
-    #>         |       |___ [recent-most file for each lake]
+    #>         |       |___ [most-recent file for each lake]
     #>         |
     #>         |___ HOBO_Raw
     #>                 |
     #>                 |___ 2021_07_27 (example name)
     #>                 |     |
-    #>                 |     |___ [one file per lake]
+    #>                 |     |___ [one file per lake (.txt)]
     #>                 |
     #>                 |___ [one folder per field mission]
 
@@ -168,7 +171,18 @@ The function `rhobo.treatments()` can be used for any dataframe.
 
 ``` r
 metadata_QAQC <- rhobo.treatments(metadata_QAQC, lakename = 1)
-
+#> -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+#> v tibble  3.1.3     v purrr   0.3.4
+#> v readr   2.0.1     v forcats 0.5.1
+#> Warning: le package 'readr' a été compilé avec la version R 4.1.1
+#> -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+#> x lubridate::as.difftime() masks base::as.difftime()
+#> x lubridate::date()        masks base::date()
+#> x dplyr::filter()          masks stats::filter()
+#> x lubridate::intersect()   masks base::intersect()
+#> x dplyr::lag()             masks stats::lag()
+#> x lubridate::setdiff()     masks base::setdiff()
+#> x lubridate::union()       masks base::union()
 ggplot(metadata_QAQC, aes(TC_1, DO_correction_factor)) + 
   geom_hline(yintercept = 1, lty = 2) +
   geom_segment(metadata_QAQC %>% 
