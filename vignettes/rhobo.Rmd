@@ -3,7 +3,7 @@ title: "rhobo"
 author: "Rosalie Bruel (iEES-Paris, CNRS, France) and Sophie Guillon (Mines ParisTech, France)"
 date: "`r Sys.Date()`"
 output: 
-  rmarkdown::html_vignette
+  rmarkdown::html_vignette:
     fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{rhobo}
@@ -16,6 +16,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+pacman::p_load(ggplot2, tidyr, dplyr, stringr, lubridate, LakeMetabolizer)
+
 ```
 
 The goal of rhobo is to read in the raw HOBO files downloaded through the HOBO software and compute the dissolved oxygen correction factors. Functions are also included to help append new data to previous data files.
