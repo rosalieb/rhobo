@@ -48,7 +48,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   # 1.3.2- The "old" folder contains all the data for all the lakes. For each lakes, we'll ID the most recent dataset.
   temp <- list.recent.files(paste0(path2data, "/Hobo_Process/old"))
   files_process <- temp$files
-  lake_index_process <- temp$index
+  lake_index_process <- lake_index <- temp$index # Naming both is not necessary, but on 14-09-2021, this line is not uploading, and lake_index_process cannot be found. Seeing if this trick solves the problem.
   
   
   #2- Create new file with appended data for each lake ####
