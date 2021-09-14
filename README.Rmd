@@ -13,6 +13,9 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+pacman::p_load(ggplot2, tidyr, dplyr, stringr, lubridate, LakeMetabolizer)
+
 ```
 
 # rhobo
@@ -36,7 +39,7 @@ library(rhobo)
 None of the following code will run unless you have data in your home folder.
 You can access the desired structure of the home repository by running `struct.dir()`.
 
-`r struct.dir()`.
+` struct.dir()`.
 
 ### 1 - Set and check your input
 
@@ -173,14 +176,15 @@ metadata_QAQC <- specify.DO.CF(metadata_QAQC, "lac11", "End", 1.05)
 metadata_QAQC <- specify.DO.CF(metadata_QAQC, "lac01L", "End", NA)
 
 # Look at the plot again - old values are shown with higher transparency
-# Note that if we had previous correction factor in the folder, they would also be shown here with pCF.all().
-pCF.all(metadata_QAQC)
+pCF(metadata_QAQC)
 ```
+
 
 
 If happy with the results, you will save the outputs by:
   -   writing the metadata (note that you can edit the output filename, but please leave the pattern "DO_Correction_factor" at the beginning, as well as Sys.Date() at the end, as this is what a later script recognize to compute a plot.)
   -   save the plot (optional)
+  
 ```{r eval = FALSE}
 # Write metadata
 write.csv(metadata_QAQC, paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_", Sys.Date(), ".csv"), row.names = FALSE)

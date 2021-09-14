@@ -19,8 +19,32 @@ You can install the development version from
 ``` r
 # install.packages("devtools")
 devtools::install_github("rosalieb/rhobo")
-#> Skipping install of 'rhobo' from a github remote, the SHA1 (b8e49dab) has not changed since last install.
-#>   Use `force = TRUE` to force installation
+#> Downloading GitHub repo rosalieb/rhobo@HEAD
+#> tibble (3.1.3 -> 3.1.4) [CRAN]
+#> Installing 1 packages: tibble
+#> Installation du package dans 'C:/Users/Rosalie Bruel/Documents/R/win-library/4.1'
+#> (car 'lib' n'est pas spécifié)
+#> package 'tibble' successfully unpacked and MD5 sums checked
+#> Warning: cannot remove prior installation of package 'tibble'
+#> Warning in file.copy(savedcopy, lib, recursive = TRUE): problème
+#> lors de la copie de C:\Users\Rosalie Bruel\Documents\R\win-
+#> library\4.1\00LOCK\tibble\libs\x64\tibble.dll vers C:\Users\Rosalie
+#> Bruel\Documents\R\win-library\4.1\tibble\libs\x64\tibble.dll: Permission denied
+#> Warning: restored 'tibble'
+#> 
+#> The downloaded binary packages are in
+#>  C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\downloaded_packages
+#>          checking for file 'C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\remotes30ec54d54d3f\rosalieb-rhobo-edf759a/DESCRIPTION' ...     checking for file 'C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\remotes30ec54d54d3f\rosalieb-rhobo-edf759a/DESCRIPTION' ...   v  checking for file 'C:\Users\Rosalie Bruel\AppData\Local\Temp\RtmpK0IlIx\remotes30ec54d54d3f\rosalieb-rhobo-edf759a/DESCRIPTION' (525ms)
+#>       -  preparing 'rhobo':
+#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
+#>       -  checking for LF line-endings in source and make files and shell scripts
+#>       -  checking for empty or unneeded directories
+#>      Omitted 'LazyData' from DESCRIPTION
+#>       -  building 'rhobo_0.0.0.9000.tar.gz'
+#>      
+#> 
+#> Installation du package dans 'C:/Users/Rosalie Bruel/Documents/R/win-library/4.1'
+#> (car 'lib' n'est pas spécifié)
 library(rhobo)
 ```
 
