@@ -4,7 +4,14 @@
 \alias{rhobo.append}
 \title{Routine HOBO part 2: Apply correction factors and append to previous files}
 \usage{
-rhobo.append(metadata_QAQC, path2data, foldername, TM_init, TM_end)
+rhobo.append(
+  metadata_QAQC,
+  path2data,
+  foldername,
+  TM_init,
+  TM_end,
+  write = TRUE
+)
 }
 \arguments{
 \item{metadata_QAQC}{output from the rhobo.CF() function. Data frame with the correction factors for all the new HOBO files.}
@@ -16,6 +23,8 @@ rhobo.append(metadata_QAQC, path2data, foldername, TM_init, TM_end)
 \item{TM_init}{Time measurement initialization : when probes are back in the lakes}
 
 \item{TM_end}{Time measurement end: when probes are taken out of the lakes}
+
+\item{write}{Whether to save the output file or not. Logical.}
 }
 \description{
 Apply the correction factors to measured dissolved oxygen and append file for each lake to previous file. If no previous file was found, only the new file is kept.

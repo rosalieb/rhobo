@@ -64,9 +64,9 @@ rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, 
   if(paste(order(temp), collapse = "") != "1234") message("\n 4. Checking chronology in your input parameters \n Problem: the time you entered for TC_pre, TM_init, TM_end and TC_post are not chronologically ordered. Check.\n _____________________") else cat("\n 4. Checking chronology in your input parameters \n     Looks ok.\n _____________________")
   
   # 5- Check Pbaro ####
-  cat("\n 5. Checking atmospheric pressure ")
-  if(Pbaro_mbar_init < 995) message("\n     Are you sure you entered Pbaro_mbar_init in millibars?\n _____________________")
-  if(Pbaro_mbar_end < 995) message("\n     Are you sure you entered Pbaro_mbar_end in millibars?\n _____________________")
+  cat("\n 5. Checking atmospheric pressure \n")
+  if(Pbaro_mbar_init < 995) message("     Are you sure you entered Pbaro_mbar_init in millibars?\n _____________________")
+  if(Pbaro_mbar_end < 995) message("     Are you sure you entered Pbaro_mbar_end in millibars?\n _____________________")
   if(all(c(Pbaro_mbar_init,Pbaro_mbar_end) >= 995)) cat("\n     Looks ok.\n _____________________")
   
   # 6. Done!
