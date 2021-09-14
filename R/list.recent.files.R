@@ -15,7 +15,7 @@ list.recent.files <- function(path) {
   # Extract lake number (01, 02, 03, ..., 16)
   index_all <- unlist(lapply(strsplit(files_all,"_"), head, 1))
   # Extract date
-  date_index_all <- as.Date(paste0(substr(unlist(lapply(strsplit(files_all,"_"), tail, 1)), 1,6), "01"), format = "%Y%m%d")
+  date_index_all <- as.Date(paste0(substr(unlist(lapply(strsplit(files_all,"_"), tail, 1)), 1, 6), "01"), format = "%Y%m%d")
   
   # select only one file per lake (lake_index vector), and within lake, select only the most recent file (date_index vector)
   which2keep = NULL
