@@ -65,9 +65,9 @@ rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, 
   
   # 5- Check Pbaro ####
   cat("\n 5. Checking atmospheric pressure ")
-  if(Pbaro_mbar_init < 995) message("     Are you sure you entered Pbaro_mbar_init in millibars?\n _____________________")
-  if(Pbaro_mbar_end < 995) message("     Are you sure you entered Pbaro_mbar_end in millibars?\n _____________________")
-  if(all(c(Pbaro_mbar_init,Pbaro_mbar_end) >= 995)) cat("     Looks ok.\n _____________________")
+  if(Pbaro_mbar_init < 995) message("\n     Are you sure you entered Pbaro_mbar_init in millibars?\n _____________________")
+  if(Pbaro_mbar_end < 995) message("\n     Are you sure you entered Pbaro_mbar_end in millibars?\n _____________________")
+  if(all(c(Pbaro_mbar_init,Pbaro_mbar_end) >= 995)) cat("\n     Looks ok.\n _____________________")
   
   # 6. Done!
   message("\n....................... Done!")

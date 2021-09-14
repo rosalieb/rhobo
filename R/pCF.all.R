@@ -56,11 +56,14 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
   
   if( is.null(x) && alldat == TRUE)  x <- x2
   
-  # 4- Add treatments
+  # 4- Add treatments ####
   x <- rhobo.treatments(x, lakename = lakename, orderby = orderby, order = order)
   
+  # 5- Plot ####
   if(is.null(xmin) & !is.null(xmax)) xmin = as.Date(min(x$TC_1), format = "%Y-%m-%d")
   if(!is.null(xmin) & is.null(xmax)) xmax = as.Date(max(x$TC_1), format = "%Y-%m-%d")
   
-  if(all(!is.null(c(xmin, xmax)))) pCF(x) + lims(xmin, xmax) else pCF(x)
+  
+  p <- pCF(x) + labs(subtitle = "Correction factors")
+  if(all(!is.null(c(xmin, xmax)))) p + lims(xmin, xmax) else p
 }

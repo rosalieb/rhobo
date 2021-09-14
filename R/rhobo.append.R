@@ -48,7 +48,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   # 1.3.2- The "old" folder contains all the data for all the lakes. For each lakes, we'll ID the most recent dataset.
   temp <- list.recent.files(paste0(path2data, "/Hobo_Process/old"))
   files_process <- temp$files
-  lake_index <- temp$index
+  lake_index_process <- temp$index
   
   
   #2- Create new file with appended data for each lake ####
