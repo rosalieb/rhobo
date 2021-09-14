@@ -70,7 +70,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
     message(paste0(" Starting ", lake_index_raw[i]," (",i,"/",length(files_raw),")..."))
     # Read in new file
     newfile <- read.hobo(files_raw[i])
-    newfile$lac <- substr(lake_index_raw[i], 4, nchar(lake_index_raw))
+    newfile$lac <- substr(lake_index_raw[i], 4, nchar(lake_index_raw[i]))
     if(!is.na(as.numeric(paste(newfile$lac[1])))) newfile$lac <- as.numeric(paste(newfile$lac))
     
     # Read in previous corrected file = file to append
