@@ -10,10 +10,11 @@
 #' @param foldername Folder name of the newest data that have been downloaded post-HOBO deployment. Folder name should be the date of the end of the deployment with the format YYYY_MM_DD, e.g., 2021_07_27
 #' @param TM_init Time measurement initialization : when probes are back in the lakes
 #' @param TM_end Time measurement end: when probes are taken out of the lakes
+#' @param write Whether to save the output file or not. Logical.
 #' @keywords planaqua
 #' @keywords hobo
 
-rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) {
+rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end, write = TRUE) {
   
   Sys.setenv(TZ = "GMT")
   
@@ -112,12 +113,19 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
     
     # Write data
     read_dat_process[[i]]<- outfile
-    if(file.exists(outpath)) stop(paste0("A file with this name (",outpath,Append,".txt) already exist in the folder. Delete it first if you want to overide it."))
-    write.table(outfile, file = outpath , append = FALSE, sep = "\t", dec = ".", row.names = FALSE, col.names = TRUE)
+    if(write) {
+      if(file.exists(outpath)) stop(paste0("A file with this name (",outpath,Append,".txt) already exist in the folder. Delete it first if you want to overide it."))
+      write.table(outfile, file = outpath , append = FALSE, sep = "\t", dec = ".", row.names = FALSE, col.names = TRUE)
+      
+      # Print progress
+      cat(paste0("     ...Done!\n     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder.\n\n"))
+    } else {
+      # Print progress
+      cat(paste0("     ...Done!\n     However, '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was not \n     written in the home folder because you chose write = FALSE.\n\n"))
+    }
+    
         
-    # Print progress
-    cat(paste0("     ...Done!\n     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder.\n\n"))
-
+    
   }
   
   # 3- Move most recent files to process folder ####

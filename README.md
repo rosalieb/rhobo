@@ -153,18 +153,18 @@ all_data <- rhobo.append(metadata_QAQC, path2data, foldername, TM_init, TM_end)
 If you assign `rhobo.append()` output, you can then access to all the
 most updated data.
 
-The function `rhobo.treatment()` can then be used to assign the
-treatments (read `?rhobo.treatment` for all the options) and do some
+The function `rhobo.treatments()` can then be used to assign the
+treatments (read `?rhobo.treatments` for all the options) and do some
 more detailed plots.
 
 ``` r
 # Create a unique dataframe
 hobo_all <- bind_rows(all_data)
 # Assign treatments
-hobo_all <- rhobo.treatment(hobo_all, lakename = "lac") 
+hobo_all <- rhobo.treatments(hobo_all, lakename = "lac") 
 ```
 
-The function `rhobo.treatment()` can be used for any dataframe.
+The function `rhobo.treatments()` can be used for any dataframe.
 
 ``` r
 metadata_QAQC <- rhobo.treatments(metadata_QAQC, lakename = 1)
