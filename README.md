@@ -12,6 +12,10 @@ the HOBO software and compute the dissolved oxygen correction factors.
 Functions are also included to help append new data to previous data
 files.
 
+The steps match the routine for data from the artificial lakes at the
+[CEREEP-Ecotron](https://www.cereep.bio.ens.psl.eu/spip.php?article45),
+and may need to be adapted to other datasets format to be widely usable.
+
 **Authors**: Rosalie Bruel (iEES-Paris, CNRS, France) and Sophie Guillon
 (Mines ParisTech, France)
 
