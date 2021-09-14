@@ -6,6 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+<a href="url"><img src="man/figures/hex-rhobo.png" align="right" height="220" width="190" ></a>
+
 The goal of rhobo is to read in the raw HOBO files downloaded through
 the HOBO software and compute the dissolved oxygen correction factors.
 Functions are also included to help append new data to previous data
