@@ -67,7 +67,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   # 2.2- Loop for each file starts here ####
   # For each 'file_raw' (each .txt files downloaded with the HOBO software), read-in and append, when corresponding file exist.
   for (i in 1:length(files_raw)) {
-    message(paste0(" Starting ", lake_index_raw[i],"..."))
+    message(paste0(" Starting ", lake_index_raw[i]," (",i,"/",length(files_raw),")..."))
     # Read in new file
     newfile <- read.hobo(files_raw[i])
     newfile$lac <- substr(lake_index_raw[i], 4, nchar(lake_index_raw))
@@ -78,7 +78,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
       tmppath <- files_process[which(lake_index_process == lake_index_raw[i])]
       file2append <- read.delim(tmppath)
      
-      cat(paste0("     The new file '", unlist(lapply(strsplit(files_raw[i], "/"), tail, 1)),"' will be appended to the \n     file '", unlist(lapply(strsplit(tmppath, "/"), tail, 1)), "' ."))
+      cat(paste0("     The new file '", unlist(lapply(strsplit(files_raw[i], "/"), tail, 1)),"' will be appended to the \n     file '", unlist(lapply(strsplit(tmppath, "/"), tail, 1)), "'.\n"))
       
       outfile <- append.new.HOBO.file(newfile = newfile,file2append = file2append,
                                       CF_init = CF_dt$DO_CF[CF_dt$Lake == lake_index_raw[i] & CF_dt$What == "Init" ],
@@ -87,7 +87,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
                                       TM_end = TM_end)
     } else {
     # If no previous file was found, just write the current newdata file alone
-      cat(paste0("\n     No corresponding older file was found for the new file \n     '", unlist(lapply(strsplit(files_raw[i], "/"), tail, 1))))
+      cat(paste0("\n     No corresponding older file was found for the new file \n     '", unlist(lapply(strsplit(files_raw[i], "/"), tail, 1)), ".\n"))
       
       outfile <- append.new.HOBO.file(newfile = newfile,file2append = NULL,
                                       CF_init = CF_dt$DO_CF[CF_dt$Lake == lake_index_raw[i] & CF_dt$What == "Init" ],
@@ -113,7 +113,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
     write.table(outfile, file = outpath , append = FALSE, sep = "\t", dec = ".", row.names = FALSE, col.names = TRUE)
         
     # Print progress
-    message(paste0("     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder."))
+    cat(paste0("     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder.\n\n"))
 
   }
   
