@@ -38,6 +38,9 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   
   # 1.3- Read in the previous compiled files ####
   # 1.3.1- Move all the files in process to the "old" folder
+  # Create folder "old" if it doesn't exist
+  dir.create(paste0(path2data, "/Hobo_Process/old"), showWarnings = FALSE)
+  
   # List files
   files_from <- list.files(paste0(path2data, "/Hobo_Process"), pattern = ".txt", full.names = FALSE)
   files_to <- c(paste0(path2data, "/Hobo_Process/old/", files_from))
@@ -113,12 +116,13 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
     write.table(outfile, file = outpath , append = FALSE, sep = "\t", dec = ".", row.names = FALSE, col.names = TRUE)
         
     # Print progress
-    cat(paste0("     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder.\n\n"))
+    cat(paste0("     ...Done!\n     '", unlist(lapply(strsplit(outpath,split = "/"), tail, 1)), "' was written in the home folder.\n\n"))
 
   }
   
   # 3- Move most recent files to process folder ####
-  message("\n........Almost done........\n     Now moving keeping in the home folder only the recent-most file (one per lake ID).")
+  message(" ........Almost done........")
+  cat("\n     Now moving files to 'Hobo_Process/old' so that only the most-recent \n     files (one per file ID) will be in the folder 'Hobo_Process'....\n")
   # List files
   files_from <- list.recent.files(paste0(path2data, "/Hobo_Process/old"))$files
   files_to <- str_replace(files_from, "/old", "")
@@ -128,7 +132,7 @@ rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end) 
   # Remove all the files
   lapply(seq_along(files_from), function (x) file.remove(files_from[x]))
   
-  message("........................Done!")
+  message("\n ........................Done!\n\n")
   
   # Return list with all the data frame created in step 2.
   return(read_dat_process)
