@@ -3,9 +3,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-<a href="url"><img src="man/figures/hex-rhobo.png" align="right" height="220" width="190" ></a>
-
-# rhobo
+# rhobo <a href="https://github.com/rosalieb/rhobo" target="_blank"><img src="man/figures/hex-rhobo.png" align="right" height="220" width="190" ></a>
 
 The goal of rhobo is to read in the raw HOBO files downloaded through
 the HOBO software and compute the dissolved oxygen correction factors.
