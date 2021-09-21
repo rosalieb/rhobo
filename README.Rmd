@@ -65,22 +65,22 @@ First, you need to specify a certain number of inputs associated with sensors de
 # Start editing here
 foldername = "2021_07_27" # Name of the folder with data unloaded. Typically, folder named YYYY_MM_DD using the date of the field mission.
 Append = format(as.Date(foldername, format = "%Y_%m_%d"), format = "%Y%m") # To respect the format, create the append that will be added to each QAQC'd file
-TC_pre = "2021/05/07 13:10:00" # Time calibration pre-deployment, after the calibration bucket # before measurements
-TM_init = "2021/05/07 13:40:00" # Time measurement init # when probes are back in the lakes
 TM_end = "2021/07/27 07:50:00" # Time measurement end # when probes are taken out of the lakes
 TC_post = "2021/07/27 09:15:00" # Time calibration end of measurements (post deployment)
+TC_pre = "2021/05/07 13:10:00" # Time calibration pre-deployment, after the calibration bucket # before measurements
+TM_init = "2021/05/07 13:40:00" # Time measurement init # when probes are back in the lakes
 Pbaro_mbar_init = 756.2 *1013/760 # P in millibar
 Pbaro_mbar_end = 752.6 *1013/760 # P in millibar
 # Stop editing here
 
 ```
 
-The timeline showing the succession of event is shown below.
+The timeline below shows the succession of events: every 3 months or so, the HOBO sensors are taken out of the water (TM_end: time end measurement), put in an oxygenated bucket for one hour (TC_post: time at the end of the hour, with theoretical measurements at max DO saturation), cleaned, put back in the bucket for at least one hour (TC_pre: time at the end of the second "bath"), then re-deployed to the lakes (TC_init). This routine takes about half-a-day, and is indicated in grey in the drawing below. On top of the 4 times that must be written down (in UTC), the atmospheric pressure is also written down at the moment of the two "baths". Atmospheric pressure and water temperature (measured by the HOBO sensors) are needed to calculate the theoretical DO saturation.
 
 ```{r plot with all the important measurements, echo=FALSE}
 dt <- data.frame(
   dates = c(0,15),
-  y = c(-3.8,4)
+  y = c(-3.5,4)
 )
 
 par(mar = c(0,1,2,0))
