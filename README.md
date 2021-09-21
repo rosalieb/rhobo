@@ -61,7 +61,6 @@ sensors deployment:
 ``` r
 # Start editing here
 foldername = "2021_07_27" # Name of the folder with data unloaded. Typically, folder named YYYY_MM_DD using the date of the field mission.
-Append = format(as.Date(foldername, format = "%Y_%m_%d"), format = "%Y%m") # To respect the format, create the append that will be added to each QAQC'd file
 TM_end = "2021/07/27 07:50:00" # Time measurement end # when probes are taken out of the lakes
 TC_post = "2021/07/27 09:15:00" # Time calibration end of measurements (post deployment)
 TC_pre = "2021/05/07 13:10:00" # Time calibration pre-deployment, after the calibration bucket # before measurements
