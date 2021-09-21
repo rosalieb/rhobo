@@ -60,19 +60,89 @@ struct.dir()
 
 First, you need to specify a certain number of inputs associated with sensors deployment:
 
+
 ```{r example}
 # Start editing here
-foldername = "2021_07_27" # Name of the folder with data unloaded. Typically, folder named YYYY_MM_DD of the field mission.
-Append = format(as.Date(foldername, format = "%Y_%m_%d"), format = "%Y%m") # To respect the format, create the append that will be add to each QAQC'd file
+foldername = "2021_07_27" # Name of the folder with data unloaded. Typically, folder named YYYY_MM_DD using the date of the field mission.
+Append = format(as.Date(foldername, format = "%Y_%m_%d"), format = "%Y%m") # To respect the format, create the append that will be added to each QAQC'd file
 TC_pre = "2021/05/07 13:10:00" # Time calibration pre-deployment, after the calibration bucket # before measurements
 TM_init = "2021/05/07 13:40:00" # Time measurement init # when probes are back in the lakes
 TM_end = "2021/07/27 07:50:00" # Time measurement end # when probes are taken out of the lakes
 TC_post = "2021/07/27 09:15:00" # Time calibration end of measurements (post deployment)
-Pbaro_mbar_init = 756.2 *1013/760 # random value right now, but enter here the P in millibar.
-Pbaro_mbar_end = 752.6 *1013/760 # random value right now
+Pbaro_mbar_init = 756.2 *1013/760 # P in millibar
+Pbaro_mbar_end = 752.6 *1013/760 # P in millibar
 # Stop editing here
 
 ```
+
+The timeline showing the succession of event is shown below.
+
+```{r plot with all the important measurements, echo=FALSE}
+dt <- data.frame(
+  dates = c(0,15),
+  y = c(-3.8,4)
+)
+
+par(mar = c(0,1,2,0))
+plot(dt$dates,dt$y, type = "n", axes = FALSE, xlab = "", ylab = "")
+
+# Add rectangle in/out of water
+rect(xleft = 0, xright = 2, ybottom = -2, ytop = 4, density = NA, col =  grey(.9))
+rect(xleft = 2, xright = 6, ybottom = -2, ytop = 4, density = NA, col = "#ADD8E6")
+rect(xleft = 6, xright = 10, ybottom = -2, ytop = 4, density = NA, col = grey(.9))
+rect(xleft = 10, xright = 14, ybottom = -2, ytop = 4, density = NA, col = "#ADD8E6")
+rect(xleft = 14, xright = 15, ybottom = -2, ytop = 4, density = NA, col = grey(.9))
+
+# Add legend
+legend("bottomright", legend = c("HOBO in water","HOBO out of water", "calibration", "deployment"), fill = c("#ADD8E6", grey(.8), NA, NA), pch = c(NA,NA,19,17), border = NA, bty = "n")
+
+# Add basic timeline
+lines(x=c(0,2.5), y = c(1,1), lwd = 2)
+lines(x=c(2,6), y = c(1,1), lty =2, lwd = 2)
+lines(x=c(5.5,10.5), y = c(1,1), lwd = 2)
+lines(x=c(10,14), y = c(1,1), lty =2, lwd = 2)
+arrows(x0 = 13.5, y0 = 1, x1 = 15, y1 = 1, length = .1, lwd = 2)
+
+# Add deployment arrow and legend
+arrows(x0 = 2, x1 = 6, y0 = -0.2, y1 = -0.2, length = .1, code=3)
+text(x=4, y=-0.2, label = "deployment\n(typically 3 months)", pos = 1)
+arrows(x0 = 10, x1 = 14, y0 = -0.2, y1 = -0.2, length = .1, code=3)
+text(x=12, y=-0.2, label = "deployment", pos = 1)
+
+# Add calibration before
+points(1, 1, pch = 1, cex = 2)
+text(1, 1, label = "'TC_pre'", pos = 1,cex = .9, offset = .4)
+# Add start deployment 
+points(2, 1, pch = 2, cex = 2)
+text(2, 1, label = "'TM_init'", pos = 3,cex = .9, offset = .8)
+
+# Add end deployment
+points(6, 1, pch = 17, cex = 2)
+text(6, 1, label = "'TM_end'", pos = 3,cex = .9, offset = .8)
+# Add calibration after
+points(7, 1, pch = 19, cex = 2)
+text(7-0.2, 1, label = "'TC_post'", pos = 1,cex = .9, offset = .4)
+# Add calibration before
+points(9, 1, pch = 19, cex = 2)
+text(9+0.2, 1, label = "'TC_pre'", pos = 1,cex = .9, offset = .4)
+# Add start deployment 
+points(10, 1, pch = 17, cex = 2)
+text(10, 1, label = "'TM_init'", pos = 3,cex = .9, offset = .8)
+
+# Add end deployment
+points(14, 1, pch = 2, cex = 2)
+text(14, 1, label = "'TM_end'", pos = 3,cex = .9, offset = .8)
+
+# Add day of mission
+arrows(x0 = 6, x1 = 10, y0 = 2.2, y1 = 2.2, length = .1, code=3)
+text(x=(6+10)/2, y=2.2, label = "day of mission\n(gives its name to\n'foldername')", pos = 3)
+
+# Add title
+mtext("Timeline of deployment and calibration", side = 3, adj = 0)
+text(-0.3, -2.4, label = " 'Pbaro_mbar_init' is measured at 'TC_post' and\n 'Pbaro_mbar_end' is measured at 'TC_pre'.", cex = .9, pos = 4)
+
+```
+
 
 We included a function, `rhobo.check.inputs()`, to help verify the inputs look ok:
 

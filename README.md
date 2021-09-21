@@ -60,16 +60,20 @@ sensors deployment:
 
 ``` r
 # Start editing here
-foldername = "2021_07_27" # Name of the folder with data unloaded. Typically, folder named YYYY_MM_DD of the field mission.
-Append = format(as.Date(foldername, format = "%Y_%m_%d"), format = "%Y%m") # To respect the format, create the append that will be add to each QAQC'd file
+foldername = "2021_07_27" # Name of the folder with data unloaded. Typically, folder named YYYY_MM_DD using the date of the field mission.
+Append = format(as.Date(foldername, format = "%Y_%m_%d"), format = "%Y%m") # To respect the format, create the append that will be added to each QAQC'd file
 TC_pre = "2021/05/07 13:10:00" # Time calibration pre-deployment, after the calibration bucket # before measurements
 TM_init = "2021/05/07 13:40:00" # Time measurement init # when probes are back in the lakes
 TM_end = "2021/07/27 07:50:00" # Time measurement end # when probes are taken out of the lakes
 TC_post = "2021/07/27 09:15:00" # Time calibration end of measurements (post deployment)
-Pbaro_mbar_init = 756.2 *1013/760 # random value right now, but enter here the P in millibar.
-Pbaro_mbar_end = 752.6 *1013/760 # random value right now
+Pbaro_mbar_init = 756.2 *1013/760 # P in millibar
+Pbaro_mbar_end = 752.6 *1013/760 # P in millibar
 # Stop editing here
 ```
+
+The timeline showing the succession of event is shown below.
+
+<img src="man/figures/README-plot with all the important measurements-1.png" width="100%" />
 
 We included a function, `rhobo.check.inputs()`, to help verify the
 inputs look ok:

@@ -20,7 +20,7 @@ rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, 
   
   library(lubridate)
   
-  # 1- Check the structure of pahth2data, and whether the folder we need are there.
+  # 1- Check the structure of path2data, and whether the folder we need are there.
   PB = FALSE # Default: no problem with the directory structure
   mmessage = NULL
   
