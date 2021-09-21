@@ -147,7 +147,11 @@ text(-0.3, -2.4, label = " 'Pbaro_mbar_init' is measured at 'TC_post' and\n 'Pba
 We included a function, `rhobo.check.inputs()`, to help verify the inputs look ok:
 
 ```{r eval=FALSE}
-rhobo.check.inputs(path2data = path2data, foldername = foldername, TC_pre = TC_pre, TC_post = TC_post, TM_init = TM_init, TM_end = TM_end, Pbaro_mbar_init = Pbaro_mbar_init, Pbaro_mbar_end = Pbaro_mbar_end)
+rhobo.check.inputs(path2data = path2data, foldername = foldername, 
+                   TC_pre = TC_pre, TC_post = TC_post, 
+                   TM_init = TM_init, TM_end = TM_end, 
+                   Pbaro_mbar_init = Pbaro_mbar_init, 
+                   Pbaro_mbar_end = Pbaro_mbar_end)
 ```
 
 
@@ -158,7 +162,12 @@ rhobo.check.inputs(path2data = path2data, foldername = foldername, TC_pre = TC_p
 The dissolved oxygen correction factor are computed within the function for each lake with available data. Check the function description `?rhobo.CF` to see the details of each argument.
 
 ```{r eval=FALSE}
-metadata_QAQC <- rhobo.CF(path2data = path2data, foldername = foldername,TC_pre = TC_pre, TC_post = TC_post,Pbaro_mbar_init = Pbaro_mbar_init, Pbaro_mbar_end = Pbaro_mbar_end, n = 4)
+metadata_QAQC <- rhobo.CF(path2data = path2data, 
+                          foldername = foldername,
+                          TC_pre = TC_pre, TC_post = TC_post,
+                          Pbaro_mbar_init = Pbaro_mbar_init, 
+                          Pbaro_mbar_end = Pbaro_mbar_end, 
+                          n = 4)
 
 ```
 
@@ -272,10 +281,12 @@ If happy with the results, you will save the outputs by:
   
 ```{r eval = FALSE}
 # Write metadata
-write.csv(metadata_QAQC, paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_", Sys.Date(), ".csv"), row.names = FALSE)
+write.csv(metadata_QAQC, paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_", Sys.Date(), ".csv"), 
+          row.names = FALSE)
 
 # Save plot
-ggsave(paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_plot_", Sys.Date(), ".png"),width = 8, height = 6)
+ggsave(paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_plot_", Sys.Date(), ".png"),
+       width = 8, height = 6)
 ```
 
 ### 3 - Append new files to previous files
@@ -283,7 +294,8 @@ ggsave(paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_plot_"
 Finally, this step allows you to go into the Hobo_Process folder, find the most-recent file for each lake, and append the new data. Old data will be moved to the folder *Hobo_Process/old*, and only the recent most datasets will be kept in the *Hobo_Process* folder.
 
 ```{r eval = FALSE}
-all_data <- rhobo.append(metadata_QAQC, path2data, foldername, TM_init, TM_end)
+all_data <- rhobo.append(metadata_QAQC, path2data, 
+                         foldername, TM_init, TM_end)
 ```
 
 ### 4 - Supplementary tools

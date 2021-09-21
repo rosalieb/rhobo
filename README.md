@@ -79,7 +79,11 @@ We included a function, `rhobo.check.inputs()`, to help verify the
 inputs look ok:
 
 ``` r
-rhobo.check.inputs(path2data = path2data, foldername = foldername, TC_pre = TC_pre, TC_post = TC_post, TM_init = TM_init, TM_end = TM_end, Pbaro_mbar_init = Pbaro_mbar_init, Pbaro_mbar_end = Pbaro_mbar_end)
+rhobo.check.inputs(path2data = path2data, foldername = foldername, 
+                   TC_pre = TC_pre, TC_post = TC_post, 
+                   TM_init = TM_init, TM_end = TM_end, 
+                   Pbaro_mbar_init = Pbaro_mbar_init, 
+                   Pbaro_mbar_end = Pbaro_mbar_end)
 ```
 
 ### 2 - Compute correction factor
@@ -91,7 +95,12 @@ for each lake with available data. Check the function description
 `?rhobo.CF` to see the details of each argument.
 
 ``` r
-metadata_QAQC <- rhobo.CF(path2data = path2data, foldername = foldername,TC_pre = TC_pre, TC_post = TC_post,Pbaro_mbar_init = Pbaro_mbar_init, Pbaro_mbar_end = Pbaro_mbar_end, n = 4)
+metadata_QAQC <- rhobo.CF(path2data = path2data, 
+                          foldername = foldername,
+                          TC_pre = TC_pre, TC_post = TC_post,
+                          Pbaro_mbar_init = Pbaro_mbar_init, 
+                          Pbaro_mbar_end = Pbaro_mbar_end, 
+                          n = 4)
 ```
 
 #### 2.2 - Manual part
@@ -141,10 +150,12 @@ compute a plot.) - save the plot (optional)
 
 ``` r
 # Write metadata
-write.csv(metadata_QAQC, paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_", Sys.Date(), ".csv"), row.names = FALSE)
+write.csv(metadata_QAQC, paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_", Sys.Date(), ".csv"), 
+          row.names = FALSE)
 
 # Save plot
-ggsave(paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_plot_", Sys.Date(), ".png"),width = 8, height = 6)
+ggsave(paste0(path2data, "/Hobo_Raw/", foldername, "/DO_Correction_factor_plot_", Sys.Date(), ".png"),
+       width = 8, height = 6)
 ```
 
 ### 3 - Append new files to previous files
@@ -155,7 +166,8 @@ will be moved to the folder *Hobo\_Process/old*, and only the recent
 most datasets will be kept in the *Hobo\_Process* folder.
 
 ``` r
-all_data <- rhobo.append(metadata_QAQC, path2data, foldername, TM_init, TM_end)
+all_data <- rhobo.append(metadata_QAQC, path2data, 
+                         foldername, TM_init, TM_end)
 ```
 
 ### 4 - Supplementary tools
