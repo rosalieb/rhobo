@@ -15,8 +15,10 @@
 #' @keywords planaqua
 #' @keywords hobo
 
-rhobo.CF <- function(path2data, foldername, TC_pre, TC_post, 
-                       Pbaro_mbar_init, Pbaro_mbar_end, n = 4) {
+rhobo.CF <- function(path2data, foldername, 
+                     TC_pre, TC_post, 
+                     Pbaro_mbar_init, Pbaro_mbar_end, 
+                     n = 4) {
   
   library(dplyr)
   

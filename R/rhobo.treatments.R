@@ -12,7 +12,9 @@
 #' @keywords PLANAQUA
 #' @keywords hobo
 
-rhobo.treatments <- function(x, lakename = NULL, orderby = "number", order = NULL) {
+rhobo.treatments <- function(x, lakename = NULL, 
+                             orderby = "number", 
+                             order = NULL) {
   library(tidyverse)
   
   x <- as.data.frame(x)

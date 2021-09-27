@@ -14,7 +14,11 @@
 #' @keywords planaqua
 #' @keywords hobo
 
-rhobo.append <- function(metadata_QAQC, path2data, foldername, TM_init, TM_end, write = TRUE) {
+rhobo.append <- function(metadata_QAQC, 
+                         path2data, 
+                         foldername, 
+                         TM_init, TM_end, 
+                         write = TRUE) {
   
   library(dplyr)
   library(tidyr)

@@ -145,18 +145,20 @@ pCF(metadata_QAQC)
 
 <div class="figure">
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" alt="Correction factor for dissolved oxygen measurements after manual edit." width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" alt="Figure 1. Correction factor for dissolved oxygen measurements after manual edit." width="100%" />
 <p class="caption">
-Correction factor for dissolved oxygen measurements after manual edit.
+Figure 1. Correction factor for dissolved oxygen measurements after
+manual edit.
 </p>
 
 </div>
 
-If happy with the results, you will save the outputs by: - writing the
-metadata (note that you can edit the output filename, but please leave
-the pattern “DO\_Correction\_factor” at the beginning, as well as
-Sys.Date() at the end, as this is what a later script recognize to
-compute a plot.) - save the plot (optional)
+If happy with the results, you will save the outputs by:  
+- writing the metadata (note that you can edit the output filename, but
+please leave the pattern “DO\_Correction\_factor” at the beginning, as
+well as Sys.Date() at the end, as this is what a later script recognize
+to compute a plot.)  
+- save the plot (optional)
 
 ``` r
 # Write metadata
@@ -226,4 +228,11 @@ ggplot(metadata_QAQC, aes(TC_1, DO_correction_factor)) +
   labs(x = "Date", y = "DO correction factor") 
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
+<div class="figure">
+
+<img src="man/figures/README-unnamed-chunk-11-1.png" alt="Figure 2. Correction factor per treatment." width="100%" />
+<p class="caption">
+Figure 2. Correction factor per treatment.
+</p>
+
+</div>

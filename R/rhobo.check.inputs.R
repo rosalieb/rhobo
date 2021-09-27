@@ -16,7 +16,10 @@
 #' @keywords planaqua
 #' @keywords hobo
 
-rhobo.check.inputs <- function(path2data, foldername, TC_pre, TC_post, TM_init, TM_end, Pbaro_mbar_init, Pbaro_mbar_end) {
+rhobo.check.inputs <- function(path2data, foldername, 
+                               TC_pre, TC_post, 
+                               TM_init, TM_end, 
+                               Pbaro_mbar_init, Pbaro_mbar_end) {
   
   library(lubridate)
   

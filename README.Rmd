@@ -260,13 +260,13 @@ metadata_QAQC <- structure(list(Lake = c("lac01", "lac01", "lac01F", "lac01F",
 ```
 
 
-```{r eval=FALSE, fig.cap = "Correction factor for dissolved oxygen measurements."}
+```{r eval=FALSE, fig.cap = "Figure 1. Correction factor for dissolved oxygen measurements."}
 # Look at the plot and make sure there are no outliers for the correction factor
 pCF(metadata_QAQC)
 ```
 
 
-```{r fig.cap = "Correction factor for dissolved oxygen measurements after manual edit."}
+```{r fig.cap = "Figure 1. Correction factor for dissolved oxygen measurements after manual edit."}
 # If some values seems off, add a manual DO correction factor:
 # Example, if we think the DO factor for "lac11" and "lacO1L" are too high at the end of the measurement:
 metadata_QAQC <- specify.DO.CF(metadata_QAQC, "lac01L", "End", 1.05)
@@ -280,8 +280,8 @@ pCF(metadata_QAQC)
 
 
 
-If happy with the results, you will save the outputs by:
-  -   writing the metadata (note that you can edit the output filename, but please leave the pattern "DO_Correction_factor" at the beginning, as well as Sys.Date() at the end, as this is what a later script recognize to compute a plot.)
+If happy with the results, you will save the outputs by:  
+  -   writing the metadata (note that you can edit the output filename, but please leave the pattern "DO_Correction_factor" at the beginning, as well as Sys.Date() at the end, as this is what a later script recognize to compute a plot.)  
   -   save the plot (optional)
   
 ```{r eval = FALSE}
@@ -318,7 +318,7 @@ hobo_all <- rhobo.treatments(hobo_all, lakename = "lac")
 
 The function `rhobo.treatments()` can be used for any dataframe.
 
-```{r}
+```{r fig.cap = "Figure 2. Correction factor per treatment." }
 metadata_QAQC <- rhobo.treatments(metadata_QAQC, lakename = 1)
 
 ggplot(metadata_QAQC, aes(TC_1, DO_correction_factor)) + 
