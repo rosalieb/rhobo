@@ -28,7 +28,7 @@ rhobo.treatments <- function(x, lakename = NULL,
   
   # Remove column treatment if already exists
   if("treatment" %in% colnames(x)) {
-    cat(paste0(" There was already a column 'treatment'. It was removed before adding it\n again with the order you chose, i.e., order by '", orderby, "'."))
+    cat(paste0(" There was already a column 'treatment'. It was removed before adding it\n again with the order you chose, i.e., order by '", orderby, "'. \n"))
     x <- x %>% select(-treatment)
     }
   
