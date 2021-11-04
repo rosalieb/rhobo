@@ -115,10 +115,10 @@ arrows(x0 = 10, x1 = 14, y0 = -0.2, y1 = -0.2, length = .1, code=3)
 text(x=12, y=-0.2, label = "deployment", pos = 1)
 
 # Add calibration before
-points(1, 1, pch = 1, cex = 2)
+points(1, 1, pch = 19, cex = 2)
 text(1, 1, label = "'TC_pre'", pos = 1,cex = .9, offset = .4)
 # Add start deployment 
-points(2, 1, pch = 2, cex = 2)
+points(2, 1, pch = 17, cex = 2)
 text(2, 1, label = "'TM_init'", pos = 3,cex = .9, offset = .8)
 
 # Add end deployment
@@ -128,10 +128,10 @@ text(6, 1, label = "'TM_end'", pos = 3,cex = .9, offset = .8)
 points(7, 1, pch = 19, cex = 2)
 text(7-0.2, 1, label = "'TC_post'", pos = 1,cex = .9, offset = .4)
 # Add calibration before
-points(9, 1, pch = 19, cex = 2)
+points(9, 1, pch = 2, cex = 2)
 text(9+0.2, 1, label = "'TC_pre'", pos = 1,cex = .9, offset = .4)
 # Add start deployment 
-points(10, 1, pch = 17, cex = 2)
+points(10, 1, pch = 1, cex = 2)
 text(10, 1, label = "'TM_init'", pos = 3,cex = .9, offset = .8)
 
 # Add end deployment

@@ -202,9 +202,11 @@ The function `rhobo.treatments()` can be used for any dataframe.
 
 ``` r
 metadata_QAQC <- rhobo.treatments(metadata_QAQC, lakename = 1)
+#> Warning: le package 'tidyverse' a été compilé avec la version R 4.1.1
 #> -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
-#> v tibble  3.1.3     v purrr   0.3.4
+#> v tibble  3.1.4     v purrr   0.3.4
 #> v readr   2.0.1     v forcats 0.5.1
+#> Warning: le package 'tibble' a été compilé avec la version R 4.1.1
 #> Warning: le package 'readr' a été compilé avec la version R 4.1.1
 #> -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 #> x lubridate::as.difftime() masks base::as.difftime()
