@@ -17,7 +17,7 @@ pCF <- function(x = NULL) {
                    select(Lake, What, TC_1, DO_correction_factor) %>%
                    pivot_wider(id_cols = Lake, names_from  = What, values_from = c(TC_1, DO_correction_factor)),
                  mapping = aes(x = TC_1_Init, xend = TC_1_End, y = DO_correction_factor_Init, yend = DO_correction_factor_End),
-                 lty =2, col = grey(.5)
+                 lty = 3, col = grey(.4)
     ) +
     geom_point(aes(TC_1, DO_correction_factor, col = Lake), show.legend = FALSE,alpha = .4) +
     # Add manual points (if any is non-NA)
