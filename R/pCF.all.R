@@ -68,6 +68,6 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
   if(!is.null(xmin) & is.null(xmax)) xmax = as.Date(max(x$TC_1), format = "%Y-%m-%d")
   
   
-  p <- pCF(x) + labs(subtitle = "Correction factors")
+  p <- pCF(x) + labs(subtitle = paste0("Correction factors ", as.Date(min(x$TC_1), format = "%m/%Y")," - ",as.Date(max(x$TC_1), format = "%d/%Y")))
   if(all(!is.null(c(xmin, xmax)))) p + lims(xmin, xmax) else p
 }

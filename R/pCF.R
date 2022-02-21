@@ -39,7 +39,7 @@ pCF <- function(x = NULL) {
                                   ifelse(DO_correction_factor, DO_correction_factor_manual) ),
                    mapping = aes(TC_1, DO_correction_factor_manual, col = Lake), show.legend = FALSE, size = 2) +
         facet_wrap(~Lake) +
-        labs(x = "Time", y = "DO correction factor",subtitle = paste0("Correction factor calculated on \n", paste(unique(x$Date_processing), sep = "", collapse = ", "))) + 
+        labs(x = "Time", y = "DO correction factor",subtitle = paste0("Correction factor calculated on ", paste(unique(x$Date_processing), sep = "", collapse = ", "))) + 
         theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
     
 }
