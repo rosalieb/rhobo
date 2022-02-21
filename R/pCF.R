@@ -10,6 +10,8 @@
 #' @keywords planaqua
 
 pCF <- function(x = NULL) { 
+    library(tidyverse)
+    
     ggplot(x) + 
         # Add calibrated data
         geom_hline(yintercept = 1, lty = 2) +
