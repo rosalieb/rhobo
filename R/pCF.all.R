@@ -27,8 +27,8 @@ pCF.all <- function(x = NULL, alldat = TRUE, lakename = "Lake", orderby = "numbe
   }
   
   # Set xmin and xmax as dates
-  if(!is.null(xmin)) xmin <- parse_date_time(x = TM_init, orders = c("%Y/%m/%d","%Y-%m-%d"), tz = "GMT")
-  if(!is.null(xmax)) xmax <- parse_date_time(x = TM_init, orders = c("%Y/%m/%d","%Y-%m-%d"), tz = "GMT")
+  if(!is.null(xmin)) xmin <- parse_date_time(x = xmin, orders = c("%Y/%m/%d","%Y-%m-%d"), tz = "GMT")
+  if(!is.null(xmax)) xmax <- parse_date_time(x = xmax, orders = c("%Y/%m/%d","%Y-%m-%d"), tz = "GMT")
   
   # Require lakename. Works with the standard format of metadata wherelakename == "Lake"
   
