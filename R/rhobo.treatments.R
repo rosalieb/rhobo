@@ -22,8 +22,8 @@ rhobo.treatments <- function(x, lakename = NULL,
   # Get treatments:
   treatments <- structure(list(LAKENUMBER_TO_USE = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 
                                         13, 14, 15, 16), treatment = structure(c(4L, 2L, 3L, 1L, 1L, 
-                                                                                 3L, 2L, 4L, 3L, 1L, 4L, 2L, 2L, 4L, 1L, 3L), .Label = c("Perch - Control", 
-                                                                                                                                         "No perch - Control", "Perch - Phosphorus", "No perch - Phosphorus"
+                                                                                 3L, 2L, 4L, 3L, 1L, 4L, 2L, 2L, 4L, 1L, 3L), .Label = c("No fishing - Control", 
+                                                                                                                                         "Fishing - Control", "No fishing - Phosphorus", "Fishing - Phosphorus"
                                                                                  ), class = "factor")), row.names = c(NA, -16L), class = "data.frame")
   
   # Remove column treatment if already exists
@@ -60,10 +60,10 @@ rhobo.treatments <- function(x, lakename = NULL,
   if(orderby == "quadrat") {
     # Order used for FOAMZ (one type of treatment by corner)
     # 1, 8   |  3, 6           Nutrients - |  Nutrients -
-    # 11, 14 |  9, 16          no perch    |    perch
+    # 11, 14 |  9, 16          fishing     |  no fishing
     # -- --- --- -- --       -- --- --- -- -- - -- --- --    
-    # 2, 7   |  4, 5          Control - no |  Control -
-    # 12, 13 | 10, 15            perch     |    perch
+    # 2, 7   |  4, 5           Control -   |  Control -
+    # 12, 13 | 10, 15           fishing    |  no fishing
     orderlakes <- c(1,8,3,6,11,14,9,16,2,7,4,5,12,13,10,15)
     orderlakes <- x %>% mutate(LAKENUMBER_TO_USE = factor(LAKENUMBER_TO_USE, levels = orderlakes)) %>% arrange(LAKENUMBER_TO_USE) %>% pull(var = lakename) %>% unique()
     x[, lakename] <- factor(x[, lakename], levels = orderlakes)
