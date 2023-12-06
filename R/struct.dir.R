@@ -2,12 +2,11 @@
 #' 
 #' @description Print in the console the folder structure were all the data needed to run the rhobo routine should be.
 #'
-#' @author 
+#' @author Rosalie Bruel
 #'
 #' @export
 #' @keywords planaqua
 #' @keywords hobo
-#' @example struct.dir()
 
 struct.dir <- function() {
   if(exists("path2data")) mpath2data = paste0(": \n    ",path2data) else mpath2data = "."

@@ -10,7 +10,7 @@ struct.dir()
 Print in the console the folder structure were all the data needed to run the rhobo routine should be.
 }
 \author{
-
+Rosalie Bruel
 }
 \keyword{hobo}
 \keyword{planaqua}

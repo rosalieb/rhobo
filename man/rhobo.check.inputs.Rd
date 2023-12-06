@@ -5,14 +5,14 @@
 \title{Check inputs before HOBO QC}
 \usage{
 rhobo.check.inputs(
-  path2data,
-  foldername,
-  TC_pre,
-  TC_post,
-  TM_init,
-  TM_end,
-  Pbaro_mbar_init,
-  Pbaro_mbar_end
+  path2data = NULL,
+  foldername = NULL,
+  TC_pre = NULL,
+  TC_post = NULL,
+  TM_init = NULL,
+  TM_end = NULL,
+  Pbaro_mbar_init = NULL,
+  Pbaro_mbar_end = NULL
 )
 }
 \arguments{
